@@ -1,15 +1,16 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'shetzain95@gmail.com',
-        pass: 'tfey yfpq gpty ltly' // Consider using environment variables instead
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS // Consider using environment variables instead
     }
 });
 
